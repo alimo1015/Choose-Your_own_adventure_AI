@@ -15,6 +15,11 @@ class StoryGenerator:
 
     @classmethod
     def _get_llm(cls):
+        api_key = os.getenv("OPENAI_API_KEY")
+
+        if api_key:
+            return ChatOpenAI(model="gpt-40-mini", api_key = api_key)
+            
         return ChatOpenAI(model="gpt-4-turbo")
 
     @classmethod
