@@ -15,15 +15,15 @@ class StoryGenerator:
 
     @classmethod
     def _get_llm(cls):
-    serviceurl = os.getenv("CHOREO_OPENAI_CONNECTION_SERVICEURL")
-    api_key = os.getenv("CHOREO_OPENAI_CONNECTION_CONSUMERSECRET")
+        serviceurl = os.getenv("CHOREO_OPENAI_CONNECTION_SERVICEURL")
+        api_key = os.getenv("CHOREO_OPENAI_CONNECTION_CONSUMERSECRET")
 
-    # Choreo’s OpenAI connection provides these two
-    if api_key and serviceurl:
-        return ChatOpenAI(model="gpt-4o-mini", api_key=api_key, base_url=serviceurl)
+        # Choreo’s OpenAI connection provides these two
+        if api_key and serviceurl:
+            return ChatOpenAI(model="gpt-4o-mini", api_key=api_key, base_url=serviceurl)
 
-    # Fallback if you’re running locally (optional)
-    return ChatOpenAI(model="gpt-4o-mini")
+        # Fallback if you’re running locally (optional)
+        return ChatOpenAI(model="gpt-4o-mini")
 
     @classmethod
     def generate_story(cls,db: Session, session_id: str, theme: str = "fantasy") -> Story:
