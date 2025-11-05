@@ -1,5 +1,5 @@
+import os
 from sqlalchemy.orm import Session
-
 
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
