@@ -15,13 +15,13 @@ class StoryGenerator:
 
     @classmethod
     def _get_llm(cls):
-    api_key = os.getenv("CHOREO_OPENAI_CONNECTION_CONSUMERSECRET")
-    base_url = "https://api.openai.com/v1"
+        api_key = os.getenv("CHOREO_OPENAI_CONNECTION_CONSUMERSECRET")
+        base_url = "https://api.openai.com/v1"
 
-    if api_key:
-        return ChatOpenAI(model="gpt-4o-mini", api_key=api_key, base_url=base_url)
+        if api_key:
+            return ChatOpenAI(model="gpt-4o-mini", api_key=api_key, base_url=base_url)
 
-    return ChatOpenAI(model="gpt-4o-mini")
+        return ChatOpenAI(model="gpt-4o-mini")
 
     @classmethod
     def generate_story(cls,db: Session, session_id: str, theme: str = "fantasy") -> Story:
