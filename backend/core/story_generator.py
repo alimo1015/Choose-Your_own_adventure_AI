@@ -15,7 +15,7 @@ class StoryGenerator:
 
     @classmethod
     def _get_llm(cls):
-        api_key = os.getenv("CHOREO_OPENAI_CONNECTION_CONSUMERSECRET")
+        api_key = api_key = os.getenv("OPENAI_API_KEY")
         base_url = "https://api.openai.com/v1"
 
         if api_key:
